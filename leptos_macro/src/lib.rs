@@ -201,13 +201,13 @@ mod template;
 /// ```
 ///
 /// 8. You can use the `node_ref` or `_ref` attribute to store a reference to its DOM element in a
-///    [NodeRef](leptos_dom::NodeRef) to use later.
+///    [NodeRef](leptos::NodeRef) via [create_node_ref](leptos::create_node_ref) to use later.
 /// ```rust
 /// # use leptos::*;
 /// # run_scope(create_runtime(), |cx| {
 /// # if !cfg!(any(feature = "csr", feature = "hydrate")) {
 /// let (value, set_value) = create_signal(cx, 0);
-/// let my_input = NodeRef::new(cx);
+/// let my_input = create_node_ref::<Input>(cx);
 /// view! { cx, <input type="text" _ref=my_input/> }
 /// // `my_input` now contains an `Element` that we can use anywhere
 /// # ;
